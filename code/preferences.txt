@@ -1,0 +1,33 @@
+board = teensy31
+
+console = true
+console.auto_clear = true
+console.length = 500
+console.lines = 4
+console.output.file = ./tmp/stdout.txt
+console.error.file = ./tmp/stderr.txt
+
+custom_keys = teensy31_en-us
+custom_speed = teensy31_96opt
+custom_usb = teensy31_serialhid
+
+programmer = arduino:avrispmkii
+
+serial.databits = 8
+serial.debug_rate = 9600
+serial.parity = N
+serial.port = /dev/ttyACM0
+serial.port.file = ttyACM0
+serial.port.iserial = null
+serial.stopbits = 1
+
+sketchbook.path = .
+
+target_package = teensy
+target_platform = avr
+
+build.warn_data_percentage = 75
+build.path = ./tmp/build
+
+upload.using = bootloader
+upload.verify = true
