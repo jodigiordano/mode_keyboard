@@ -24,10 +24,15 @@ struct Key {
   boolean pressed;
 };
 
-const uint16_t KEY_NOOP = -1;
-const uint16_t KEY_NUMPAD = -2;
-const uint16_t KEY_PLUS = -3;
-const uint16_t KEY_MODE = -4;
+// A lot of keys are already defined here:
+// https://github.com/PaulStoffregen/cores/blob/master/teensy/keylayouts.h
+// Here I define additional keys in an unused namespace:
+
+const uint16_t KEY_NOOP = 1 | 0xA000;
+const uint16_t KEY_LAYOUT_NUMPAD = 2 | 0xA000;
+const uint16_t KEY_PLUS = 3 | 0xA000;
+const uint16_t KEY_LAYOUT_MODE = 4 | 0xA000;
+const uint16_t KEY_LAYOUT_FN = 5 | 0xA000;
 
 struct Color {
   uint8_t r;

@@ -20,7 +20,7 @@ LayoutKey defaultLayout[rowsCount][columnsCount] = {
     { KEY_BACKSPACE, COLOR_RED }
   },
   {
-    { KEY_MODE, COLOR_YELLOW }, // TODO
+    { KEY_LAYOUT_MODE, COLOR_YELLOW },
     { KEY_A, COLOR_BLUE }, // TODO
     { KEY_A, COLOR_BLUE },
     { KEY_S, COLOR_BLUE },
@@ -35,7 +35,7 @@ LayoutKey defaultLayout[rowsCount][columnsCount] = {
     { KEY_RIGHT_BRACE, COLOR_BLUE }
   },
   {
-    { KEY_NUMPAD, COLOR_YELLOW }, // TODO
+    { KEY_LAYOUT_NUMPAD, COLOR_YELLOW },
     { MODIFIERKEY_SHIFT, COLOR_FUCHSIA },
     { KEY_Z, COLOR_BLUE },
     { KEY_X, COLOR_BLUE },
@@ -50,7 +50,7 @@ LayoutKey defaultLayout[rowsCount][columnsCount] = {
     { KEY_ENTER, COLOR_GREEN }
   },
   {
-    { KEY_F3, COLOR_YELLOW }, // TODO
+    { KEY_LAYOUT_FN, COLOR_YELLOW },
     { MODIFIERKEY_CTRL, COLOR_FUCHSIA },
     { MODIFIERKEY_GUI, COLOR_FUCHSIA },
     { MODIFIERKEY_ALT, COLOR_FUCHSIA },

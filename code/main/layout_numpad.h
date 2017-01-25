@@ -37,7 +37,7 @@ LayoutKey numpadLayout[rowsCount][columnsCount] = {
     { KEY_EQUAL, COLOR_PURPLE }
   },
   {
-    { KEY_NUMPAD, COLOR_BLACK },
+    { KEY_LAYOUT_NUMPAD, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },

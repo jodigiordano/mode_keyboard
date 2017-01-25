@@ -3,6 +3,7 @@
 #include "layout_default.h"
 #include "layout_numpad.h"
 #include "layout_mode.h"
+#include "layout_fn.h"
 
 bool debug = false;
 bool debugLedOn = false;
@@ -169,7 +170,7 @@ void keyPressed(Key* key, LayoutKey* layout) {
   if (layout->code == KEY_NOOP) {
     // NOOP.
   } else if (layout->code == KEY_PLUS) {
-    Keyboard.set_key1((uint16_t) KEY_EQUAL);
+    Keyboard.set_key1((uint8_t) KEY_EQUAL);
 
     modifierShiftPressed = true;
     Keyboard.set_modifier(getModifierState(layout, true));
@@ -177,10 +178,13 @@ void keyPressed(Key* key, LayoutKey* layout) {
     if (!debug) {
       Keyboard.send_now();
     }
-  } else if (layout->code == KEY_NUMPAD) {
+  } else if (layout->code == KEY_LAYOUT_NUMPAD) {
     currentLayout = numpadLayout;
     updateLayoutLights();
-  } else if (layout->code == KEY_MODE) {
+  } else if (layout->code == KEY_LAYOUT_FN) {
+    currentLayout = fnLayout;
+    updateLayoutLights();
+  } else if (layout->code == KEY_LAYOUT_MODE) {
     currentLayout = modeLayout;
     updateLayoutLights();
   } else if (isModifier(layout)) {
@@ -214,7 +218,11 @@ void keyReleased(Key* key, LayoutKey* layout) {
     if (!debug) {
       Keyboard.send_now();
     }
-  } else if (layout->code == KEY_NUMPAD || layout->code == KEY_MODE) {
+  } else if (
+    layout->code == KEY_LAYOUT_NUMPAD ||
+    layout->code == KEY_LAYOUT_MODE ||
+    layout->code == KEY_LAYOUT_FN
+  ) {
     currentLayout = defaultLayout;
     updateLayoutLights();
   } else if (isModifier(layout)) {
