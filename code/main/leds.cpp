@@ -10,9 +10,9 @@ void Leds::update() {
 }
 
 void Leds::on(Key* key, LayoutKey* layout) {
-  Tlc.set(key->rPin, gammaCorrectionR[layout->color.r] * 8 * layout->color.a);
-  Tlc.set(key->gPin, gammaCorrectionG[layout->color.g] * 8 * layout->color.a);
-  Tlc.set(key->bPin, gammaCorrectionB[layout->color.b] * 8 * layout->color.a);
+  Tlc.set(key->rPin, gammaCorrectionR[layout->color.r] * 8);
+  Tlc.set(key->gPin, gammaCorrectionG[layout->color.g] * 8);
+  Tlc.set(key->bPin, gammaCorrectionB[layout->color.b] * 8);
 }
 
 void Leds::off(Key* key) {

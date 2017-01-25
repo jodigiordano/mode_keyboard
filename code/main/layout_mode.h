@@ -1,0 +1,69 @@
+#ifndef LAYOUT_MODE_H
+#define LAYOUT_MODE_H
+
+#include "main.h"
+
+LayoutKey modeLayout[rowsCount][columnsCount] = {
+  {
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_DELETE, COLOR_RED }
+  },
+  {
+    { KEY_MODE, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK }
+  },
+  {
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_PAGE_UP, COLOR_YELLOW },
+    { KEY_NOOP, COLOR_BLACK }
+  },
+  {
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_TAB, COLOR_AQUA },
+    { KEY_TAB, COLOR_AQUA },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_HOME, COLOR_YELLOW },
+    { KEY_PAGE_DOWN, COLOR_YELLOW },
+    { KEY_END, COLOR_YELLOW }
+  }
+};
+
+#endif

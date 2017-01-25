@@ -5,64 +5,64 @@
 
 LayoutKey defaultLayout[rowsCount][columnsCount] = {
   {
-    { KEY_ESC, { 255, 255, 255, 1 } },
-    { KEY_TILDE, { 255, 255, 255, 1 } },
-    { KEY_Q, { 255, 255, 255, 1 } },
-    { KEY_W, { 255, 255, 255, 1 } },
-    { KEY_E, { 255, 255, 255, 1 } },
-    { KEY_R, { 255, 255, 255, 1 } },
-    { KEY_T, { 255, 255, 255, 1 } },
-    { KEY_Y, { 255, 255, 255, 1 } },
-    { KEY_U, { 255, 255, 255, 1 } },
-    { KEY_I, { 255, 255, 255, 1 } },
-    { KEY_O, { 255, 255, 255, 1 } },
-    { KEY_P, { 255, 255, 255, 1 } },
-    { KEY_BACKSPACE, { 255, 255, 255, 1 } }
+    { KEY_ESC, COLOR_RED },
+    { KEY_TILDE, COLOR_BLUE },
+    { KEY_Q, COLOR_BLUE },
+    { KEY_W, COLOR_BLUE },
+    { KEY_E, COLOR_BLUE },
+    { KEY_R, COLOR_BLUE },
+    { KEY_T, COLOR_BLUE },
+    { KEY_Y, COLOR_BLUE},
+    { KEY_U, COLOR_BLUE },
+    { KEY_I, COLOR_BLUE },
+    { KEY_O, COLOR_BLUE },
+    { KEY_P, COLOR_BLUE },
+    { KEY_BACKSPACE, COLOR_RED }
   },
   {
-    { KEY_F1, { 255, 255, 255, 1 } }, // TODO
-    { KEY_A, { 255, 255, 255, 1 } }, // TODO
-    { KEY_A, { 255, 255, 255, 1 } },
-    { KEY_S, { 255, 255, 255, 1 } },
-    { KEY_D, { 255, 255, 255, 1 } },
-    { KEY_F, { 255, 255, 255, 1 } },
-    { KEY_G, { 255, 255, 255, 1 } },
-    { KEY_H, { 255, 255, 255, 1 } },
-    { KEY_J, { 255, 255, 255, 1 } },
-    { KEY_K, { 255, 255, 255, 1 } },
-    { KEY_L,  { 255, 255, 255, 1 } },
-    { KEY_LEFT_BRACE,  { 255, 255, 255, 1 } },
-    { KEY_RIGHT_BRACE,  { 255, 255, 255, 1 } }
+    { KEY_MODE, COLOR_YELLOW }, // TODO
+    { KEY_A, COLOR_BLUE }, // TODO
+    { KEY_A, COLOR_BLUE },
+    { KEY_S, COLOR_BLUE },
+    { KEY_D, COLOR_BLUE },
+    { KEY_F, COLOR_BLUE },
+    { KEY_G, COLOR_BLUE },
+    { KEY_H, COLOR_BLUE },
+    { KEY_J, COLOR_BLUE },
+    { KEY_K, COLOR_BLUE },
+    { KEY_L, COLOR_BLUE },
+    { KEY_LEFT_BRACE, COLOR_BLUE },
+    { KEY_RIGHT_BRACE, COLOR_BLUE }
   },
   {
-    { KEY_F2, { 255, 255, 255, 1 } }, // TODO
-    { MODIFIERKEY_SHIFT, { 255, 255, 255, 1 } },
-    { KEY_Z, { 255, 255, 255, 1 } },
-    { KEY_X, { 255, 255, 255, 1 } },
-    { KEY_C, { 255, 255, 255, 1 } },
-    { KEY_V, { 255, 255, 255, 1 } },
-    { KEY_B, { 255, 255, 255, 1 } },
-    { KEY_N, { 255, 255, 255, 1 } },
-    { KEY_M, { 255, 255, 255, 1 } },
-    { KEY_ENTER, { 255, 255, 255, 1 } },
-    { KEY_A, { 255, 255, 255, 1 } }, // TODO
-    { KEY_UP, { 255, 255, 255, 1 } },
-    { KEY_A, { 255, 255, 255, 1 } } // TODO
+    { KEY_NUMPAD, COLOR_YELLOW }, // TODO
+    { MODIFIERKEY_SHIFT, COLOR_FUCHSIA },
+    { KEY_Z, COLOR_BLUE },
+    { KEY_X, COLOR_BLUE },
+    { KEY_C, COLOR_BLUE },
+    { KEY_V, COLOR_BLUE },
+    { KEY_B, COLOR_BLUE },
+    { KEY_N, COLOR_BLUE },
+    { KEY_M, COLOR_BLUE },
+    { KEY_A, COLOR_BLUE }, // TODO
+    { KEY_A, COLOR_BLUE }, // TODO
+    { KEY_UP, COLOR_YELLOW },
+    { KEY_ENTER, COLOR_GREEN }
   },
   {
-    { KEY_F3, { 255, 255, 255, 1 } }, // TODO
-    { MODIFIERKEY_CTRL, { 255, 255, 255, 1 } },
-    { MODIFIERKEY_GUI, { 255, 255, 255, 1 } },
-    { MODIFIERKEY_ALT, { 255, 255, 255, 1 } },
-    { KEY_F4, { 255, 255, 255, 1 } }, // TODO
-    { KEY_SPACE, { 255, 255, 255, 1 } },
-    { KEY_SPACE, { 255, 255, 255, 1 } },
-    { KEY_A, { 255, 255, 255, 1 } }, // TODO
-    { KEY_A, { 255, 255, 255, 1 } }, // TODO
-    { KEY_A, { 255, 255, 255, 1 } }, // TODO
-    { KEY_LEFT, { 255, 255, 255, 1 } },
-    { KEY_DOWN, { 255, 255, 255, 1 } },
-    { KEY_RIGHT, { 255, 255, 255, 1 } }
+    { KEY_F3, COLOR_YELLOW }, // TODO
+    { MODIFIERKEY_CTRL, COLOR_FUCHSIA },
+    { MODIFIERKEY_GUI, COLOR_FUCHSIA },
+    { MODIFIERKEY_ALT, COLOR_FUCHSIA },
+    { KEY_F4, COLOR_YELLOW }, // TODO
+    { KEY_SPACE, COLOR_AQUA },
+    { KEY_SPACE, COLOR_AQUA },
+    { KEY_A, COLOR_BLUE }, // TODO
+    { KEY_A, COLOR_BLUE }, // TODO
+    { KEY_A, COLOR_BLUE }, // TODO
+    { KEY_LEFT, COLOR_YELLOW },
+    { KEY_DOWN, COLOR_YELLOW },
+    { KEY_RIGHT, COLOR_YELLOW }
   }
 };
 

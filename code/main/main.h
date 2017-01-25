@@ -24,12 +24,26 @@ struct Key {
   boolean pressed;
 };
 
+const uint16_t KEY_NOOP = -1;
+const uint16_t KEY_NUMPAD = -2;
+const uint16_t KEY_PLUS = -3;
+const uint16_t KEY_MODE = -4;
+
 struct Color {
   uint8_t r;
   uint8_t g;
   uint8_t b;
-  float a;
 };
+
+const Color COLOR_WHITE = { 255, 255, 255 };
+const Color COLOR_PURPLE = { 200, 0, 128 };
+const Color COLOR_RED = { 255, 0, 0 };
+const Color COLOR_GREEN = { 0, 255, 0 };
+const Color COLOR_BLUE = { 0, 0, 255 };
+const Color COLOR_AQUA = { 0, 255, 255 };
+const Color COLOR_YELLOW = { 255, 255, 0 };
+const Color COLOR_FUCHSIA = { 255, 0, 255 };
+const Color COLOR_BLACK = { 0, 0, 0 };
 
 struct LayoutKey {
   uint16_t code;

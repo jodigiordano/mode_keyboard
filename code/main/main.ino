@@ -1,9 +1,18 @@
 #include "main.h"
 #include "leds.h"
 #include "layout_default.h"
+#include "layout_numpad.h"
+#include "layout_mode.h"
 
 bool debug = false;
 bool debugLedOn = false;
+
+bool modifierCtrlPressed = false;
+bool modifierShiftPressed = false;
+bool modifierAltPressed = false;
+bool modifierGuiPressed = false;
+
+LayoutKey (*currentLayout)[columnsCount] = defaultLayout;
 
 Leds lights;
 
@@ -31,63 +40,63 @@ Leds lights;
 Key keys[rowsCount][columnsCount] = {
  {
    { 3, 0, 3, 4, 5, false },
-   { 3, 1, 16, 32, 48, false },
-   { 3, 2, 17, 33, 49, false },
-   { 3, 3, 25, 41, 57, false },
-   { 3, 7, 26, 42, 58, false },
-   { 3, 6, 73, 89, 105, false },
-   { 3, 5, 66, 82, 98, false },
-   { 3, 4, 68, 84, 100, false },
-   { 3, 8, 70, 86, 102, false },
-   { 3, 9, 112, 128, 144, false },
-   { 3, 10, 114, 130, 146, false },
-   { 3, 11, 116, 132, 148, false },
-   { 3, 12, 118, 134, 150, false }
+   { 3, 1, 12, 13, 14, false },
+   { 3, 2, 21, 37, 53, false },
+   { 3, 3, 28, 44, 60, false },
+   { 3, 7, 76, 92, 108, false },
+   { 3, 6, 72, 88, 104, false },
+   { 3, 5, 31, 47, 63, false },
+   { 3, 4, 30, 46, 62, false },
+   { 3, 8, 78, 94, 110, false },
+   { 3, 9, 121, 137, 153, false },
+   { 3, 10, 124, 140, 156, false },
+   { 3, 11, 127, 143, 159, false },
+   { 3, 12, 125, 141, 157, false }
  },
  {
    { 2, 0, 9, 10, 11, false },
-   { 2, 1, 18, 34, 50, false },
-   { 2, 2, 19, 35, 51, false },
-   { 2, 3, 22, 38, 54, false },
-   { 2, 7, 24, 40, 56, false },
-   { 2, 6, 64, 80, 96, false },
-   { 2, 5, 67, 83, 99, false },
-   { 2, 4, 69, 85, 101, false },
-   { 2, 8, 71, 87, 103, false },
-   { 2, 9, 113, 129, 145, false },
-   { 2, 10, 115, 131, 147, false },
-   { 2, 11, 117, 133, 149, false },
-   { 2, 12, 119, 135, 151, false }
+   { 2, 1, 20, 36, 52, false },
+   { 2, 2, 23, 39, 55, false },
+   { 2, 3, 29, 45, 61, false },
+   { 2, 7, 77, 93, 109, false },
+   { 2, 6, 74, 90, 106, false },
+   { 2, 5, 65, 81, 97, false },
+   { 2, 4, 27, 43, 59, false },
+   { 2, 8, 79, 95, 111, false },
+   { 2, 9, 120, 136, 152, false },
+   { 2, 10, 122, 138, 154, false },
+   { 2, 11, 123, 139, 155, false },
+   { 2, 12, 126, 142, 158, false }
  },
  {
    { 1, 0, 0, 1, 2, false },
-   { 1, 1, 20, 36, 52, false },
-   { 1, 2, 23, 39, 55, false },
-   { 1, 3, 29, 45, 61, false },
-   { 1, 7, 27, 43, 59, false },
-   { 1, 6, 65, 81, 97, false },
-   { 1, 5, 74, 90, 106, false },
-   { 1, 4, 77, 93, 109, false },
-   { 1, 8, 79, 95, 111, false },
-   { 1, 9, 120, 136, 152, false },
-   { 1, 10, 122, 138, 154, false },
-   { 1, 11, 123, 139, 155, false },
-   { 1, 12, 126, 142, 158, false }
+   { 1, 1, 18, 34, 50, false },
+   { 1, 2, 19, 35, 51, false },
+   { 1, 3, 22, 38, 54, false },
+   { 1, 7, 69, 85, 101, false },
+   { 1, 6, 67, 83, 99, false },
+   { 1, 5, 64, 80, 96, false },
+   { 1, 4, 24, 40, 56, false },
+   { 1, 8, 71, 87, 103, false },
+   { 1, 9, 113, 129, 145, false },
+   { 1, 10, 115, 131, 147, false },
+   { 1, 11, 117, 133, 149, false },
+   { 1, 12, 119, 135, 151, false }
  },
  {
    { 0, 0, 6, 7, 8, false },
-   { 0, 1, 12, 13, 14, false },
-   { 0, 2, 21, 37, 53, false },
-   { 0, 3, 28, 44, 60, false },
-   { 0, 7, 30, 46, 62, false },
-   { 0, 6, 31, 47, 63, false },
-   { 0, 5, 72, 88, 104, false },
-   { 0, 4, 76, 92, 108, false },
-   { 0, 8, 78, 94, 110, false },
-   { 0, 9, 121, 137, 153, false },
-   { 0, 10, 124, 140, 156, false },
-   { 0, 11, 127, 143, 159, false },
-   { 0, 12, 125, 141, 157, false }
+   { 0, 1, 16, 32, 48, false },
+   { 0, 2, 17, 33, 49, false },
+   { 0, 3, 25, 41, 57, false },
+   { 0, 7, 68, 84, 100, false },
+   { 0, 6, 66, 82, 98, false },
+   { 0, 5, 73, 89, 105, false },
+   { 0, 4, 26, 42, 58, false },
+   { 0, 8, 70, 86, 102, false },
+   { 0, 9, 112, 128, 144, false },
+   { 0, 10, 114, 130, 146, false },
+   { 0, 11, 116, 132, 148, false },
+   { 0, 12, 118, 134, 150, false }
  }
 };
 
@@ -97,7 +106,7 @@ Key* getKey(uint8_t row, uint8_t column) {
 
 LayoutKey* getLayoutKey(uint8_t row, uint8_t column) {
   // TODO: use layouts depending on mode.
-  return &defaultLayout[row][column];
+  return &currentLayout[row][column];
 }
 
 void setup() {
@@ -124,8 +133,6 @@ void setup() {
 
   pinMode(6, OUTPUT);
   digitalWrite(6, HIGH);
-
-  intro();
 
   updateLayoutLights();
 }
@@ -159,62 +166,104 @@ void loop() {
 }
 
 void keyPressed(Key* key, LayoutKey* layout) {
-  if (isModifier(layout)) {
+  if (layout->code == KEY_NOOP) {
+    // NOOP.
+  } else if (layout->code == KEY_PLUS) {
+    Keyboard.set_key1((uint16_t) KEY_EQUAL);
+
+    modifierShiftPressed = true;
     Keyboard.set_modifier(getModifierState(layout, true));
+
+    if (!debug) {
+      Keyboard.send_now();
+    }
+  } else if (layout->code == KEY_NUMPAD) {
+    currentLayout = numpadLayout;
+    updateLayoutLights();
+  } else if (layout->code == KEY_MODE) {
+    currentLayout = modeLayout;
+    updateLayoutLights();
+  } else if (isModifier(layout)) {
+    Keyboard.set_modifier(getModifierState(layout, true));
+
+    if (!debug) {
+      Keyboard.send_now();
+    }
   } else {
     Keyboard.set_key1(layout->code);
+
+    if (!debug) {
+      Keyboard.send_now();
+    }
   }
 
   if (debug) {
     logKey("pressed", key, layout);
-    return;
   }
-
-  Keyboard.send_now();
 }
 
 void keyReleased(Key* key, LayoutKey* layout) {
-  if (isModifier(layout)) {
+  if (layout->code == KEY_NOOP) {
+    // NOOP.
+  } else if (layout->code == KEY_PLUS) {
+    Keyboard.set_key1(0);
+
+    modifierShiftPressed = false;
     Keyboard.set_modifier(getModifierState(layout, false));
+
+    if (!debug) {
+      Keyboard.send_now();
+    }
+  } else if (layout->code == KEY_NUMPAD || layout->code == KEY_MODE) {
+    currentLayout = defaultLayout;
+    updateLayoutLights();
+  } else if (isModifier(layout)) {
+    Keyboard.set_modifier(getModifierState(layout, false));
+
+    if (!debug) {
+      Keyboard.send_now();
+    }
   } else {
     Keyboard.set_key1(0);
+
+    if (!debug) {
+      Keyboard.send_now();
+    }
   }
 
   if (debug) {
     logKey("released", key, layout);
-    return;
   }
-
-  Keyboard.send_now();
 }
 
 // Lights.
 
-void intro() {
+void updateLayoutLights() {
   for (uint8_t j = 0; j < columnsCount; j++) {
+    uint8_t column = j;
+
+    if (j == 4) {
+      column = 7;
+    } else if (j == 5) {
+      column = 6;
+    } else if (j == 6) {
+      column = 5;
+    } else if (j == 7) {
+      column = 4;
+    }
+
     for (uint8_t i = 0; i < rowsCount; i++) {
-      lights.on(getKey(i, j), getLayoutKey(i, j));
+      Key* key = getKey(i, column);
+      LayoutKey* layout = getLayoutKey(key->row, key->column);
+      lights.on(key, layout);
     }
 
     lights.update();
-    delay(10);
+    delay(5);
   }
 }
 
-void updateLayoutLights() {
-  for (uint8_t i = 0; i < rowsCount; i++) {
-    for (uint8_t j = 0; j < columnsCount; j++) {
-      lights.on(getKey(i, j), getLayoutKey(i, j));
-    }
-  }
-}
-
-// Modifiers.
-
-bool modifierCtrlPressed = false;
-bool modifierShiftPressed = false;
-bool modifierAltPressed = false;
-bool modifierGuiPressed = false;
+// Standard modifiers.
 
 bool isModifier(LayoutKey* layout) {
   return

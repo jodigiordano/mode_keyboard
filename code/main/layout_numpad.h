@@ -1,0 +1,71 @@
+#ifndef LAYOUT_NUMPAD_H
+#define LAYOUT_NUMPAD_H
+
+#include "main.h"
+
+// TODO: percent, divide, dot.
+
+LayoutKey numpadLayout[rowsCount][columnsCount] = {
+  {
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_7, COLOR_WHITE },
+    { KEY_8, COLOR_WHITE },
+    { KEY_9, COLOR_WHITE },
+    { KEY_MINUS, COLOR_PURPLE },
+    { KEY_BACKSPACE, COLOR_RED }
+  },
+  {
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_4, COLOR_WHITE },
+    { KEY_5, COLOR_WHITE },
+    { KEY_6, COLOR_WHITE },
+    { KEY_PLUS, COLOR_PURPLE },
+    { KEY_EQUAL, COLOR_PURPLE }
+  },
+  {
+    { KEY_NUMPAD, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_1, COLOR_WHITE },
+    { KEY_2, COLOR_WHITE },
+    { KEY_3, COLOR_WHITE },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_ENTER, COLOR_GREEN }
+  },
+  {
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_0, COLOR_WHITE },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK }
+  }
+};
+
+#endif
