@@ -8,7 +8,7 @@ console.output.file = ./tmp/stdout.txt
 console.error.file = ./tmp/stderr.txt
 
 custom_keys = teensy31_en-us
-custom_speed = teensy31_96opt
+custom_speed = teensy31_24opt
 custom_usb = teensy31_serialhid
 
 programmer = arduino:avrispmkii
