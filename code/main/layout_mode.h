@@ -6,7 +6,7 @@
 LayoutKey modeLayout[rowsCount][columnsCount] = {
   {
     { KEY_NOOP, COLOR_BLACK },
-    { KEY_NOOP, COLOR_BLACK },
+    { KEY_LAYOUT_KEYBOARD, COLOR_YELLOW },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
@@ -21,6 +21,7 @@ LayoutKey modeLayout[rowsCount][columnsCount] = {
   },
   {
     { KEY_LAYOUT_MODE, COLOR_BLACK },
+    { KEY_LAYOUT_SYSTEM, COLOR_YELLOW },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
@@ -31,12 +32,11 @@ LayoutKey modeLayout[rowsCount][columnsCount] = {
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
-    { KEY_NOOP, COLOR_BLACK },
-    { KEY_NOOP, COLOR_BLACK }
+    { KEY_TAB, COLOR_AQUA }
   },
   {
-    { KEY_NOOP, COLOR_BLACK },
-    { KEY_NOOP, COLOR_BLACK },
+    { KEY_LAYOUT_FR, COLOR_YELLOW },
+    { MODIFIERKEY_SHIFT, COLOR_FUCHSIA },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
@@ -50,13 +50,13 @@ LayoutKey modeLayout[rowsCount][columnsCount] = {
     { KEY_NOOP, COLOR_BLACK }
   },
   {
+    { KEY_LAYOUT_FUNCTIONS, COLOR_YELLOW },
+    { MODIFIERKEY_CTRL, COLOR_FUCHSIA },
+    { MODIFIERKEY_GUI, COLOR_FUCHSIA },
+    { MODIFIERKEY_ALT, COLOR_FUCHSIA },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
-    { KEY_NOOP, COLOR_BLACK },
-    { KEY_NOOP, COLOR_BLACK },
-    { KEY_TAB, COLOR_AQUA },
-    { KEY_TAB, COLOR_AQUA },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },

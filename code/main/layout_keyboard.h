@@ -1,27 +1,12 @@
-#ifndef LAYOUT_NUMPAD_H
-#define LAYOUT_NUMPAD_H
+#ifndef LAYOUT_KEYBOARD_H
+#define LAYOUT_KEYBOARD_H
 
 #include "main.h"
 
-// TODO: percent, divide, dot.
-
-LayoutKey numpadLayout[rowsCount][columnsCount] = {
+LayoutKey kbLayout[rowsCount][columnsCount] = {
   {
     { KEY_NOOP, COLOR_BLACK },
-    { KEY_NOOP, COLOR_BLACK },
-    { KEY_NOOP, COLOR_BLACK },
-    { KEY_NOOP, COLOR_BLACK },
-    { KEY_NOOP, COLOR_BLACK },
-    { KEY_NOOP, COLOR_BLACK },
-    { KEY_NOOP, COLOR_BLACK },
-    { KEYPAD_ASTERIX, COLOR_PURPLE },
-    { KEYPAD_7, COLOR_WHITE },
-    { KEYPAD_8, COLOR_WHITE },
-    { KEYPAD_9, COLOR_WHITE },
-    { KEYPAD_MINUS, COLOR_PURPLE },
-    { KEY_BACKSPACE, COLOR_RED }
-  },
-  {
+    { KEY_LAYOUT_KEYBOARD, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
@@ -30,14 +15,12 @@ LayoutKey numpadLayout[rowsCount][columnsCount] = {
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
-    { KEYPAD_4, COLOR_WHITE },
-    { KEYPAD_5, COLOR_WHITE },
-    { KEYPAD_6, COLOR_WHITE },
+    { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK }
   },
   {
-    { KEY_LAYOUT_NUMPAD, COLOR_BLACK },
+    { KEY_LAYOUT_MODE, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
@@ -45,11 +28,11 @@ LayoutKey numpadLayout[rowsCount][columnsCount] = {
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
-    { KEYPAD_1, COLOR_WHITE },
-    { KEYPAD_2, COLOR_WHITE },
-    { KEYPAD_3, COLOR_WHITE },
     { KEY_NOOP, COLOR_BLACK },
-    { KEYPAD_ENTER, COLOR_GREEN }
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK }
   },
   {
     { KEY_NOOP, COLOR_BLACK },
@@ -57,12 +40,27 @@ LayoutKey numpadLayout[rowsCount][columnsCount] = {
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
-    { KEYPAD_PERIOD, COLOR_PURPLE },
-    { KEYPAD_SLASH, COLOR_PURPLE },
-    { KEYPAD_PLUS, COLOR_PURPLE },
-    { KEY_EQUAL, COLOR_PURPLE },
-    { KEYPAD_0, COLOR_WHITE },
     { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK }
+  },
+  {
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
+    { KEY_HOME, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK }
   }

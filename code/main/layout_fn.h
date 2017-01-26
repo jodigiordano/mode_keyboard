@@ -20,7 +20,7 @@ LayoutKey fnLayout[rowsCount][columnsCount] = {
     { KEY_NOOP, COLOR_BLACK }
   },
   {
-    { KEY_NOOP, COLOR_BLACK },
+    { KEY_LAYOUT_MODE, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
@@ -50,7 +50,7 @@ LayoutKey fnLayout[rowsCount][columnsCount] = {
     { KEY_NOOP, COLOR_BLACK }
   },
   {
-    { KEY_LAYOUT_FN, COLOR_BLACK },
+    { KEY_LAYOUT_FUNCTIONS, COLOR_BLACK },
     { MODIFIERKEY_CTRL, COLOR_FUCHSIA },
     { MODIFIERKEY_GUI, COLOR_FUCHSIA },
     { MODIFIERKEY_ALT, COLOR_FUCHSIA },

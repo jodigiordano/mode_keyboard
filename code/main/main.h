@@ -28,11 +28,17 @@ struct Key {
 // https://github.com/PaulStoffregen/cores/blob/master/teensy/keylayouts.h
 // Here I define additional keys in an unused namespace:
 
-const uint16_t KEY_NOOP = 1 | 0xA000;
-const uint16_t KEY_LAYOUT_NUMPAD = 2 | 0xA000;
-const uint16_t KEY_PLUS = 3 | 0xA000;
-const uint16_t KEY_LAYOUT_MODE = 4 | 0xA000;
-const uint16_t KEY_LAYOUT_FN = 5 | 0xA000;
+const uint16_t KEY_LAYOUT_MODE           = 1 | 0xA000;
+const uint16_t KEY_LAYOUT_NUMPAD         = 2 | 0xA000;
+const uint16_t KEY_LAYOUT_FR             = 3 | 0xA000;
+const uint16_t KEY_LAYOUT_SYMBOLS        = 4 | 0xA000;
+const uint16_t KEY_LAYOUT_FUNCTIONS      = 5 | 0xA000;
+const uint16_t KEY_LAYOUT_WINDOW_MANAGER = 6 | 0xA000;
+const uint16_t KEY_LAYOUT_KEYBOARD       = 7 | 0xA000;
+const uint16_t KEY_LAYOUT_MEDIA          = 8 | 0xA000;
+const uint16_t KEY_LAYOUT_SYSTEM         = 9 | 0xA000;
+
+const uint16_t KEY_NOOP = 10 | 0xA000;
 
 struct Color {
   uint8_t r;

@@ -1,9 +1,15 @@
 #include "main.h"
 #include "leds.h"
 #include "layout_default.h"
-#include "layout_numpad.h"
-#include "layout_mode.h"
 #include "layout_fn.h"
+#include "layout_fr.h"
+#include "layout_keyboard.h"
+#include "layout_media.h"
+#include "layout_mode.h"
+#include "layout_numpad.h"
+#include "layout_symbols.h"
+#include "layout_system.h"
+#include "layout_wm.h"
 
 bool debug = false;
 bool debugLedOn = false;
@@ -12,6 +18,7 @@ bool modifierCtrlPressed = false;
 bool modifierShiftPressed = false;
 bool modifierAltPressed = false;
 bool modifierGuiPressed = false;
+bool modifierModePressed = false;
 
 LayoutKey (*currentLayout)[columnsCount] = defaultLayout;
 
@@ -169,23 +176,41 @@ void loop() {
 void keyPressed(Key* key, LayoutKey* layout) {
   if (layout->code == KEY_NOOP) {
     // NOOP.
-  } else if (layout->code == KEY_PLUS) {
-    Keyboard.set_key1((uint8_t) KEY_EQUAL);
+  } else if (layout->code == KEY_LAYOUT_MODE) {
+    modifierModePressed = true;
 
-    modifierShiftPressed = true;
-    Keyboard.set_modifier(getModifierState(layout, true));
-
-    if (!debug) {
-      Keyboard.send_now();
+    if (
+      currentLayout != frLayout &&
+      currentLayout != fnLayout &&
+      currentLayout != kbLayout &&
+      currentLayout != systemLayout
+    ) {
+      currentLayout = modeLayout;
+      updateLayoutLights();
     }
   } else if (layout->code == KEY_LAYOUT_NUMPAD) {
     currentLayout = numpadLayout;
     updateLayoutLights();
-  } else if (layout->code == KEY_LAYOUT_FN) {
+  } else if (layout->code == KEY_LAYOUT_FR) {
+    currentLayout = frLayout;
+    updateLayoutLights();
+  } else if (layout->code == KEY_LAYOUT_SYMBOLS) {
+    currentLayout = symbolsLayout;
+    updateLayoutLights();
+  } else if (layout->code == KEY_LAYOUT_FUNCTIONS) {
     currentLayout = fnLayout;
     updateLayoutLights();
-  } else if (layout->code == KEY_LAYOUT_MODE) {
-    currentLayout = modeLayout;
+  } else if (layout->code == KEY_LAYOUT_WINDOW_MANAGER) {
+    currentLayout = wmLayout;
+    updateLayoutLights();
+  } else if (layout->code == KEY_LAYOUT_KEYBOARD) {
+    currentLayout = kbLayout;
+    updateLayoutLights();
+  } else if (layout->code == KEY_LAYOUT_MEDIA) {
+    currentLayout = mediaLayout;
+    updateLayoutLights();
+  } else if (layout->code == KEY_LAYOUT_SYSTEM) {
+    currentLayout = systemLayout;
     updateLayoutLights();
   } else if (isModifier(layout)) {
     Keyboard.set_modifier(getModifierState(layout, true));
@@ -209,19 +234,35 @@ void keyPressed(Key* key, LayoutKey* layout) {
 void keyReleased(Key* key, LayoutKey* layout) {
   if (layout->code == KEY_NOOP) {
     // NOOP.
-  } else if (layout->code == KEY_PLUS) {
-    Keyboard.set_key1(0);
+  } else if (layout->code == KEY_LAYOUT_MODE) {
+    modifierModePressed = false;
 
-    modifierShiftPressed = false;
-    Keyboard.set_modifier(getModifierState(layout, false));
-
-    if (!debug) {
-      Keyboard.send_now();
+    if (currentLayout == modeLayout) {
+      currentLayout = defaultLayout;
+      updateLayoutLights();
     }
   } else if (
+    layout->code == KEY_LAYOUT_FR ||
+    layout->code == KEY_LAYOUT_FUNCTIONS ||
+    layout->code == KEY_LAYOUT_KEYBOARD ||
+    layout->code == KEY_LAYOUT_SYSTEM
+  ) {
+    if (modifierModePressed) {
+      currentLayout = modeLayout;
+    } else {
+      currentLayout = defaultLayout;
+    }
+
+    updateLayoutLights();
+  } else if (
     layout->code == KEY_LAYOUT_NUMPAD ||
-    layout->code == KEY_LAYOUT_MODE ||
-    layout->code == KEY_LAYOUT_FN
+    layout->code == KEY_LAYOUT_FR ||
+    layout->code == KEY_LAYOUT_SYMBOLS ||
+    layout->code == KEY_LAYOUT_FUNCTIONS ||
+    layout->code == KEY_LAYOUT_WINDOW_MANAGER ||
+    layout->code == KEY_LAYOUT_KEYBOARD ||
+    layout->code == KEY_LAYOUT_MEDIA ||
+    layout->code == KEY_LAYOUT_SYSTEM
   ) {
     currentLayout = defaultLayout;
     updateLayoutLights();
@@ -271,7 +312,7 @@ void updateLayoutLights() {
   }
 }
 
-// Standard modifiers.
+// Modifiers.
 
 bool isModifier(LayoutKey* layout) {
   return

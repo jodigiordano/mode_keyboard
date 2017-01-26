@@ -6,7 +6,7 @@
 LayoutKey defaultLayout[rowsCount][columnsCount] = {
   {
     { KEY_ESC, COLOR_RED },
-    { KEY_TILDE, COLOR_BLUE },
+    { KEY_LAYOUT_WINDOW_MANAGER, COLOR_YELLOW },
     { KEY_Q, COLOR_BLUE },
     { KEY_W, COLOR_BLUE },
     { KEY_E, COLOR_BLUE },
@@ -21,7 +21,7 @@ LayoutKey defaultLayout[rowsCount][columnsCount] = {
   },
   {
     { KEY_LAYOUT_MODE, COLOR_YELLOW },
-    { KEY_A, COLOR_BLUE }, // TODO
+    { KEY_LAYOUT_MEDIA, COLOR_YELLOW },
     { KEY_A, COLOR_BLUE },
     { KEY_S, COLOR_BLUE },
     { KEY_D, COLOR_BLUE },
@@ -31,8 +31,8 @@ LayoutKey defaultLayout[rowsCount][columnsCount] = {
     { KEY_J, COLOR_BLUE },
     { KEY_K, COLOR_BLUE },
     { KEY_L, COLOR_BLUE },
-    { KEY_LEFT_BRACE, COLOR_BLUE },
-    { KEY_RIGHT_BRACE, COLOR_BLUE }
+    { KEY_A, COLOR_BLUE }, // TODO
+    { KEY_SPACE, COLOR_AQUA }
   },
   {
     { KEY_LAYOUT_NUMPAD, COLOR_YELLOW },
@@ -50,13 +50,13 @@ LayoutKey defaultLayout[rowsCount][columnsCount] = {
     { KEY_ENTER, COLOR_GREEN }
   },
   {
-    { KEY_LAYOUT_FN, COLOR_YELLOW },
+    { KEY_LAYOUT_SYMBOLS, COLOR_YELLOW },
     { MODIFIERKEY_CTRL, COLOR_FUCHSIA },
     { MODIFIERKEY_GUI, COLOR_FUCHSIA },
     { MODIFIERKEY_ALT, COLOR_FUCHSIA },
-    { KEY_F4, COLOR_YELLOW }, // TODO
-    { KEY_SPACE, COLOR_AQUA },
-    { KEY_SPACE, COLOR_AQUA },
+    { KEY_A, COLOR_BLUE }, // TODO
+    { KEY_A, COLOR_BLUE }, // TODO
+    { KEY_A, COLOR_BLUE }, // TODO
     { KEY_A, COLOR_BLUE }, // TODO
     { KEY_A, COLOR_BLUE }, // TODO
     { KEY_A, COLOR_BLUE }, // TODO
