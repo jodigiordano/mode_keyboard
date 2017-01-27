@@ -21,7 +21,7 @@ LayoutKey modeLayout[rowsCount][columnsCount] = {
   },
   {
     { KEY_LAYOUT_MODE, COLOR_BLACK },
-    { KEY_LAYOUT_SYSTEM, COLOR_YELLOW },
+    { KEY_LAYOUT_MEDIA, COLOR_YELLOW },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
@@ -35,7 +35,7 @@ LayoutKey modeLayout[rowsCount][columnsCount] = {
     { KEY_TAB, COLOR_AQUA }
   },
   {
-    { KEY_LAYOUT_FR, COLOR_YELLOW },
+    { KEY_LAYOUT_SYSTEM, COLOR_YELLOW },
     { MODIFIERKEY_SHIFT, COLOR_FUCHSIA },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },

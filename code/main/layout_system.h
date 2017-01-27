@@ -21,7 +21,7 @@ LayoutKey systemLayout[rowsCount][columnsCount] = {
   },
   {
     { KEY_LAYOUT_MODE, COLOR_BLACK },
-    { KEY_LAYOUT_SYSTEM, COLOR_BLACK },
+    { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
@@ -35,7 +35,7 @@ LayoutKey systemLayout[rowsCount][columnsCount] = {
     { KEY_NOOP, COLOR_BLACK }
   },
   {
-    { KEY_NOOP, COLOR_BLACK },
+    { KEY_LAYOUT_SYSTEM, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },

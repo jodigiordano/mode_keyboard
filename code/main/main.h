@@ -28,17 +28,50 @@ struct Key {
 // https://github.com/PaulStoffregen/cores/blob/master/teensy/keylayouts.h
 // Here I define additional keys in an unused namespace:
 
-const uint16_t KEY_LAYOUT_MODE           = 1 | 0xA000;
-const uint16_t KEY_LAYOUT_NUMPAD         = 2 | 0xA000;
-const uint16_t KEY_LAYOUT_FR             = 3 | 0xA000;
-const uint16_t KEY_LAYOUT_SYMBOLS        = 4 | 0xA000;
-const uint16_t KEY_LAYOUT_FUNCTIONS      = 5 | 0xA000;
-const uint16_t KEY_LAYOUT_WINDOW_MANAGER = 6 | 0xA000;
-const uint16_t KEY_LAYOUT_KEYBOARD       = 7 | 0xA000;
-const uint16_t KEY_LAYOUT_MEDIA          = 8 | 0xA000;
-const uint16_t KEY_LAYOUT_SYSTEM         = 9 | 0xA000;
+const uint16_t KEY_LAYOUT_MODE               = 1 | 0xA000;
+const uint16_t KEY_LAYOUT_NUMPAD             = 2 | 0xA000;
+const uint16_t KEY_LAYOUT_FR                 = 3 | 0xA000;
+const uint16_t KEY_LAYOUT_SYMBOLS            = 4 | 0xA000;
+const uint16_t KEY_LAYOUT_FUNCTIONS          = 5 | 0xA000;
+const uint16_t KEY_LAYOUT_WINDOW_MANAGER     = 6 | 0xA000;
+const uint16_t KEY_LAYOUT_KEYBOARD           = 7 | 0xA000;
+const uint16_t KEY_LAYOUT_MEDIA              = 8 | 0xA000;
+const uint16_t KEY_LAYOUT_SYSTEM             = 9 | 0xA000;
 
-const uint16_t KEY_NOOP = 10 | 0xA000;
+const uint16_t KEY_NOOP                      = 10 | 0xA000;
+
+const uint16_t KEY_FR_E                      = 11 | 0xA000; // é
+const uint16_t KEY_FR_EE                     = 12 | 0xA000; // è
+const uint16_t KEY_FR_A                      = 13 | 0xA000; // à
+const uint16_t KEY_FR_C                      = 14 | 0xA000; // ç
+const uint16_t KEY_FR_U                      = 15 | 0xA000; // ù
+const uint16_t KEY_FR_UU                     = 16 | 0xA000; // û
+const uint16_t KEY_FR_I                      = 17 | 0xA000; // ï
+
+const uint16_t KEY_SYMBOL_EXCLAMATION_MARK   = 17 | 0xA000; // !
+const uint16_t KEY_SYMBOL_COMMERCIAL_A       = 18 | 0xA000; // @
+const uint16_t KEY_SYMBOL_SHARP              = 19 | 0xA000; // #
+const uint16_t KEY_SYMBOL_DOLLAR             = 20 | 0xA000; // $
+const uint16_t KEY_SYMBOL_PERCENT            = 21 | 0xA000; // %
+const uint16_t KEY_SYMBOL_CIRCUMFLEX         = 22 | 0xA000; // ^
+const uint16_t KEY_SYMBOL_AMPERSAND          = 23 | 0xA000; // &
+const uint16_t KEY_SYMBOL_ASTERIX            = 24 | 0xA000; // *
+const uint16_t KEY_SYMBOL_LEFT_PARENTHESIS   = 25 | 0xA000; // (
+const uint16_t KEY_SYMBOL_RIGHT_PARENTHESIS  = 26 | 0xA000; // )
+const uint16_t KEY_SYMBOL_UNDERSCORE         = 27 | 0xA000; // _
+const uint16_t KEY_SYMBOL_PIPE               = 28 | 0xA000; // |
+const uint16_t KEY_SYMBOL_LEFT_CHEVRON       = 29 | 0xA000; // <
+const uint16_t KEY_SYMBOL_RIGHT_CHEVRON      = 30 | 0xA000; // >
+const uint16_t KEY_SYMBOL_QUESTION_MARK      = 31 | 0xA000; // ?
+const uint16_t KEY_SYMBOL_COLON              = 32 | 0xA000; // :
+const uint16_t KEY_SYMBOL_DOUBLE_QUOTE       = 33 | 0xA000; // "
+const uint16_t KEY_SYMBOL_LEFT_BRACE         = 34 | 0xA000; // {
+const uint16_t KEY_SYMBOL_RIGHT_BRACE        = 35 | 0xA000; // }
+const uint16_t KEY_SYMBOL_TILDE              = 36 | 0xA000; // }
+
+const uint16_t KEY_BACKTICK                  = KEY_TILDE;
+const uint16_t KEY_LEFT_BRACKET              = KEY_LEFT_BRACE;
+const uint16_t KEY_RIGHT_BRACKET             = KEY_RIGHT_BRACE;
 
 struct Color {
   uint8_t r;

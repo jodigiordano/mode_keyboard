@@ -20,7 +20,7 @@ LayoutKey mediaLayout[rowsCount][columnsCount] = {
     { KEY_NOOP, COLOR_BLACK }
   },
   {
-    { KEY_NOOP, COLOR_BLACK },
+    { KEY_LAYOUT_MODE, COLOR_BLACK },
     { KEY_LAYOUT_MEDIA, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },

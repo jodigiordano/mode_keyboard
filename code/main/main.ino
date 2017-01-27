@@ -113,8 +113,20 @@ Key* getKey(uint8_t row, uint8_t column) {
 }
 
 LayoutKey* getLayoutKey(uint8_t row, uint8_t column) {
-  // TODO: use layouts depending on mode.
   return &currentLayout[row][column];
+}
+
+void sendKeys() {
+  if (!debug) {
+    Keyboard.send_now();
+  }
+}
+
+void sendSymbolKey(LayoutKey* layout, uint16_t realKeyCode, bool pressed) {
+  modifierShiftPressed = pressed;
+  Keyboard.set_modifier(getModifierState(layout, pressed));
+  Keyboard.set_key1(pressed ? (uint8_t) realKeyCode : 0);
+  sendKeys();
 }
 
 void setup() {
@@ -176,6 +188,52 @@ void loop() {
 void keyPressed(Key* key, LayoutKey* layout) {
   if (layout->code == KEY_NOOP) {
     // NOOP.
+  } else if (layout->code == KEY_FR_E) {
+    // TODO
+  } else if (layout->code == KEY_FR_A) {
+    // TODO
+  } else if (layout->code == KEY_FR_C) {
+    // TODO
+  } else if (layout->code == KEY_SYMBOL_EXCLAMATION_MARK) {
+    sendSymbolKey(layout, KEY_1, true);
+  } else if (layout->code == KEY_SYMBOL_COMMERCIAL_A) {
+    sendSymbolKey(layout, KEY_2, true);
+  } else if (layout->code == KEY_SYMBOL_SHARP) {
+    sendSymbolKey(layout, KEY_3, true);
+  } else if (layout->code == KEY_SYMBOL_DOLLAR) {
+    sendSymbolKey(layout, KEY_4, true);
+  } else if (layout->code == KEY_SYMBOL_PERCENT) {
+    sendSymbolKey(layout, KEY_5, true);
+  } else if (layout->code == KEY_SYMBOL_CIRCUMFLEX) {
+    sendSymbolKey(layout, KEY_6, true);
+  } else if (layout->code == KEY_SYMBOL_AMPERSAND) {
+    sendSymbolKey(layout, KEY_7, true);
+  } else if (layout->code == KEY_SYMBOL_ASTERIX) {
+    sendSymbolKey(layout, KEY_8, true);
+  } else if (layout->code == KEY_SYMBOL_LEFT_PARENTHESIS) {
+    sendSymbolKey(layout, KEY_9, true);
+  } else if (layout->code == KEY_SYMBOL_RIGHT_PARENTHESIS) {
+    sendSymbolKey(layout, KEY_0, true);
+  } else if (layout->code == KEY_SYMBOL_UNDERSCORE) {
+    sendSymbolKey(layout, KEY_MINUS, true);
+  } else if (layout->code == KEY_SYMBOL_PIPE) {
+    sendSymbolKey(layout, KEY_BACKSLASH, true);
+  } else if (layout->code == KEY_SYMBOL_LEFT_CHEVRON) {
+    sendSymbolKey(layout, KEY_COMMA, true);
+  } else if (layout->code == KEY_SYMBOL_RIGHT_CHEVRON) {
+    sendSymbolKey(layout, KEY_PERIOD, true);
+  } else if (layout->code == KEY_SYMBOL_QUESTION_MARK) {
+    sendSymbolKey(layout, KEY_SLASH, true);
+  } else if (layout->code == KEY_SYMBOL_COLON) {
+    sendSymbolKey(layout, KEY_SEMICOLON, true);
+  } else if (layout->code == KEY_SYMBOL_DOUBLE_QUOTE) {
+    sendSymbolKey(layout, KEY_QUOTE, true);
+  } else if (layout->code == KEY_SYMBOL_LEFT_BRACE) {
+    sendSymbolKey(layout, KEY_LEFT_BRACKET, true);
+  } else if (layout->code == KEY_SYMBOL_RIGHT_BRACE) {
+    sendSymbolKey(layout, KEY_RIGHT_BRACKET, true);
+  } else if (layout->code == KEY_SYMBOL_TILDE) {
+    sendSymbolKey(layout, KEY_BACKTICK, true);
   } else if (layout->code == KEY_LAYOUT_MODE) {
     modifierModePressed = true;
 
@@ -214,26 +272,41 @@ void keyPressed(Key* key, LayoutKey* layout) {
     updateLayoutLights();
   } else if (isModifier(layout)) {
     Keyboard.set_modifier(getModifierState(layout, true));
-
-    if (!debug) {
-      Keyboard.send_now();
-    }
+    sendKeys();
   } else {
     Keyboard.set_key1(layout->code);
-
-    if (!debug) {
-      Keyboard.send_now();
-    }
+    sendKeys();
   }
 
-  if (debug) {
-    logKey("pressed", key, layout);
-  }
+  logKey("pressed", key, layout);
 }
 
 void keyReleased(Key* key, LayoutKey* layout) {
   if (layout->code == KEY_NOOP) {
     // NOOP.
+  } else if (
+    layout->code == KEY_SYMBOL_EXCLAMATION_MARK ||
+    layout->code == KEY_SYMBOL_COMMERCIAL_A ||
+    layout->code == KEY_SYMBOL_SHARP ||
+    layout->code == KEY_SYMBOL_DOLLAR ||
+    layout->code == KEY_SYMBOL_PERCENT ||
+    layout->code == KEY_SYMBOL_CIRCUMFLEX ||
+    layout->code == KEY_SYMBOL_AMPERSAND ||
+    layout->code == KEY_SYMBOL_ASTERIX ||
+    layout->code == KEY_SYMBOL_LEFT_PARENTHESIS ||
+    layout->code == KEY_SYMBOL_RIGHT_PARENTHESIS ||
+    layout->code == KEY_SYMBOL_UNDERSCORE ||
+    layout->code == KEY_SYMBOL_PIPE ||
+    layout->code == KEY_SYMBOL_LEFT_CHEVRON ||
+    layout->code == KEY_SYMBOL_RIGHT_CHEVRON ||
+    layout->code == KEY_SYMBOL_QUESTION_MARK ||
+    layout->code == KEY_SYMBOL_COLON ||
+    layout->code == KEY_SYMBOL_DOUBLE_QUOTE ||
+    layout->code == KEY_SYMBOL_LEFT_BRACE ||
+    layout->code == KEY_SYMBOL_RIGHT_BRACE ||
+    layout->code == KEY_SYMBOL_TILDE
+  ) {
+    sendSymbolKey(layout, 0, false);
   } else if (layout->code == KEY_LAYOUT_MODE) {
     modifierModePressed = false;
 
@@ -268,21 +341,13 @@ void keyReleased(Key* key, LayoutKey* layout) {
     updateLayoutLights();
   } else if (isModifier(layout)) {
     Keyboard.set_modifier(getModifierState(layout, false));
-
-    if (!debug) {
-      Keyboard.send_now();
-    }
+    sendKeys();
   } else {
     Keyboard.set_key1(0);
-
-    if (!debug) {
-      Keyboard.send_now();
-    }
+    sendKeys();
   }
 
-  if (debug) {
-    logKey("released", key, layout);
-  }
+  logKey("released", key, layout);
 }
 
 // Lights.
@@ -352,16 +417,18 @@ void logTick() {
 }
 
 void logKey(String state, Key* key, LayoutKey* layout) {
-  String message = "[char ";
+  if (debug) {
+    String message = "[char ";
 
-  message += layout->code;
-  message += "]";
-  message += "[pin ";
-  message += key->row;
-  message += ", ";
-  message += key->column;
-  message += "] ";
-  message += state;
+    message += layout->code;
+    message += "]";
+    message += "[pin ";
+    message += key->row;
+    message += ", ";
+    message += key->column;
+    message += "] ";
+    message += state;
 
-  Serial.println(message);
+    Serial.println(message);
+  }
 }
