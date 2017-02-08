@@ -42,7 +42,7 @@ LayoutKey numpadLayout[rowsCount][columnsCount] = {
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
     { KEY_NOOP, COLOR_BLACK },
-    { KEYPAD_PERIOD, COLOR_PURPLE },
+    { KEY_PERIOD, COLOR_PURPLE }, // TODO: KEYPAD_PERIOD
     { KEY_1, COLOR_WHITE }, // TODO: KEYPAD_1
     { KEY_2, COLOR_WHITE }, // TODO: KEYPAD_2
     { KEY_3, COLOR_WHITE }, // TODO: KEYPAD_3
